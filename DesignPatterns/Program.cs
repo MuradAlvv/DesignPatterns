@@ -4,6 +4,7 @@ using DesignPatterns.AbstractFactory.Cursor;
 using DesignPatterns.Adapter;
 using DesignPatterns.Builder;
 using DesignPatterns.Composite;
+using DesignPatterns.Proxy;
 
 #region AbstractFactory
 
@@ -36,7 +37,8 @@ Person person = PersonBuilder.Builder()
 
 #region Adapter
 
-IXmlProcessor jsonLib = new JsonAdapter();
+JsonProcessor jsonProcessor = new JsonProcessor();
+IXmlProcessor jsonLib = new JsonAdapter(jsonProcessor);
 jsonLib.Process(new Xml("..."));
 
 #endregion
@@ -59,3 +61,17 @@ cg1.Draw();
 
 #endregion
 
+#region Proxy
+
+IProductRepository repository = new ProductRepository();
+IProductRepository proxy = new CachedProductRepository(repository);
+ProductService productService = new ProductService(proxy);
+
+productService.GetById(2);
+productService.GetById(0);
+productService.GetById(4);
+productService.GetById(2);
+productService.GetById(0);
+productService.GetById(5);
+
+#endregion

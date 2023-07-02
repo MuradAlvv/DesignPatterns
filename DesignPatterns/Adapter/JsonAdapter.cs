@@ -3,7 +3,12 @@ namespace DesignPatterns.Adapter
 {
     internal class JsonAdapter : IXmlProcessor
     {
-        private readonly JsonProcessor _jsonProcessor = new();
+        private readonly JsonProcessor _jsonProcessor;
+
+        public JsonAdapter(JsonProcessor jsonProcessor)
+        {
+            _jsonProcessor = jsonProcessor;
+        }
 
         public void Process(Xml xml)
         {

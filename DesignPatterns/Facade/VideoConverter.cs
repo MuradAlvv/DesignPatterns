@@ -3,7 +3,12 @@ namespace DesignPatterns.Facade
 {
     internal class VideoConverter  //FACADE class
     {
-        private readonly CodecFactory _codecFactory = new();
+        private readonly CodecFactory _codecFactory;
+
+        public VideoConverter(CodecFactory codecFactory)
+        {
+            _codecFactory = codecFactory;
+        }
 
         public VideoFile Convert(VideoFile file, VideoType outputType)
         {
