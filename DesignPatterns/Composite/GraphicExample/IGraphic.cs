@@ -1,5 +1,4 @@
-﻿
-namespace DesignPatterns.Composite
+﻿namespace DesignPatterns.Composite.GraphicExample
 {
     internal interface IGraphic
     {

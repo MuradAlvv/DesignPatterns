@@ -3,8 +3,9 @@ using DesignPatterns.AbstractFactory.Button;
 using DesignPatterns.AbstractFactory.Cursor;
 using DesignPatterns.Adapter;
 using DesignPatterns.Builder;
-using DesignPatterns.Composite;
+using DesignPatterns.Composite.GraphicExample;
 using DesignPatterns.Proxy;
+using DesignPatterns.State;
 
 #region AbstractFactory
 
@@ -73,5 +74,18 @@ productService.GetById(4);
 productService.GetById(2);
 productService.GetById(0);
 productService.GetById(5);
+
+#endregion
+
+#region State
+
+Package package = new Package();
+package.PrintStatus();
+package.NextState();
+package.PrintStatus();
+package.NextState();
+package.PrintStatus();
+package.NextState();
+package.PrintStatus();
 
 #endregion
