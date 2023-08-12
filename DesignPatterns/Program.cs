@@ -5,6 +5,7 @@ using DesignPatterns.Adapter;
 using DesignPatterns.Builder;
 using DesignPatterns.Command;
 using DesignPatterns.Composite.GraphicExample;
+using DesignPatterns.Prototype;
 using DesignPatterns.Proxy;
 using DesignPatterns.State;
 
@@ -98,4 +99,14 @@ Editor editor = new Editor(inputHandler);
 editor.Select();
 editor.Undo();
 editor.Redo();
+
+#endregion
+
+#region Prototype
+
+Ghost ghost = new Ghost();
+ghost.Damage = 5;
+ghost.Health = 10;
+EnemySpawner spawner = new EnemySpawner(ghost);
+Enemy clone = spawner.Spawn();
 #endregion
