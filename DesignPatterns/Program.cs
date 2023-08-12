@@ -3,6 +3,7 @@ using DesignPatterns.AbstractFactory.Button;
 using DesignPatterns.AbstractFactory.Cursor;
 using DesignPatterns.Adapter;
 using DesignPatterns.Builder;
+using DesignPatterns.Command;
 using DesignPatterns.Composite.GraphicExample;
 using DesignPatterns.Proxy;
 using DesignPatterns.State;
@@ -88,4 +89,13 @@ package.PrintStatus();
 package.NextState();
 package.PrintStatus();
 
+#endregion
+
+#region Command
+
+InputHandler inputHandler = new InputHandler();
+Editor editor = new Editor(inputHandler);
+editor.Select();
+editor.Undo();
+editor.Redo();
 #endregion
